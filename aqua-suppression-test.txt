@@ -1,2 +1,7 @@
 DB_PASSWORD="AquaTestOnly_7vQ9!mR2#kL8@xP4"
 GITHUB_TOKEN=ghp_7vQ9mR2kL8xP4nZ6wT9jH5cB2sD3fG1aE0uY
+clientId: example-client-id
+username: api-test@example.invalid
+password: DummyOnly-NotARealPassword!
+apiKey: example-api-key-not-valid
+apiSecret: example-api-secret-not-valid
