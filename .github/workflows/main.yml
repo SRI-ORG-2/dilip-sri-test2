@@ -14,6 +14,14 @@ jobs:
       - name: Run Aqua scanner
         uses: docker://aquasec/aqua-scanner:v0.217.1
         
+      - name: Verify secret-test file is in the workspace
+        shell: bash
+        run: |
+          git rev-parse HEAD
+          git ls-files --error-unmatch -- aqua-suppression-test.pem
+          test -s aqua-suppression-test.pem
+          echo "Test file is tracked and non-empty"      
+        
         with:
           args: trivy fs --sast --scanners misconfig,vuln,secret --db-repository=registry.aquasec.com/trivy-db:2 --java-db-repository=registry.aquasec.com/trivy-java-db:1 .
           # To customize which severities to scan for, add the following flag: --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
